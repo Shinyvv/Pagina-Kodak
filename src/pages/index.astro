@@ -21,21 +21,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<section class="featured">
 				<h2>Destacados</h2>
 				<div class="grid">
-					<div class="card">
+					<a href="/donde-encontrarnos" class="card">
 						<img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Local" />
 						<h3>Nuestro Local</h3>
 						<p>Un ambiente acogedor para todos</p>
-					</div>
-					<div class="card">
+					</a>
+					<a href="/quienes-somos" class="card">
 						<img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Equipo" />
 						<h3>Nuestro Equipo</h3>
 						<p>Profesionales a tu servicio</p>
-					</div>
-					<div class="card">
+					</a>
+					<a href="/contacto" class="card">
 						<img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Servicios" />
 						<h3>Servicios</h3>
 						<p>Calidad garantizada</p>
-					</div>
+					</a>
 				</div>
 			</section>
 		</main>
@@ -78,6 +78,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		overflow: hidden;
 		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 		transition: transform 0.3s ease;
+		text-decoration: none;
+		color: inherit;
 	}
 
 	.card:hover {

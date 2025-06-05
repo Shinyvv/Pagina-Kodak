@@ -1,0 +1,153 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Contacto - ${SITE_TITLE}`} description="Contáctanos" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Contacto</h1>
+			<div class="contact-container">
+				<div class="contact-info">
+					<h2>Información de Contacto</h2>
+					<div class="info-item">
+						<span class="icon">📞</span>
+						<div>
+							<h3>Teléfono</h3>
+							<p>123-456-789</p>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="icon">📧</span>
+						<div>
+							<h3>Email</h3>
+							<p>info@ejemplo.com</p>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="icon">📍</span>
+						<div>
+							<h3>Dirección</h3>
+							<p>Calle Principal 123<br>Ciudad, País</p>
+						</div>
+					</div>
+				</div>
+				<form class="contact-form">
+					<div class="form-group">
+						<label for="name">Nombre</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+					<div class="form-group">
+						<label for="subject">Asunto</label>
+						<input type="text" id="subject" name="subject" required>
+					</div>
+					<div class="form-group">
+						<label for="message">Mensaje</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<button type="submit">Enviar Mensaje</button>
+				</form>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.contact-container {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.contact-info {
+		background: white;
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.info-item {
+		display: flex;
+		align-items: flex-start;
+		margin: 1.5rem 0;
+	}
+
+	.icon {
+		font-size: 1.5rem;
+		margin-right: 1rem;
+		min-width: 2rem;
+	}
+
+	.contact-form {
+		background: white;
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+	}
+
+	input, textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	button {
+		background: var(--accent);
+		color: white;
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 4px;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	button:hover {
+		background: var(--accent-dark);
+	}
+
+	@media (max-width: 768px) {
+		.contact-container {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script>
+	const form = document.querySelector('.contact-form');
+	form?.addEventListener('submit', (e) => {
+		e.preventDefault();
+		// Add your form submission logic here
+		alert('Mensaje enviado correctamente');
+		form.reset();
+	});
+</script>
