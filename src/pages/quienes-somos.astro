@@ -1,0 +1,126 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={`Servicios - ${SITE_TITLE}`} description="Descubre los servicios profesionales que ofrecemos" />
+	</head>
+	<body style="display: flex; flex-direction: column; min-height: 100vh;">
+		<Header />
+		<main style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
+			<h1 style="text-align: center; margin-bottom: 2rem;">Nuestros Servicios</h1>
+			<div class="services-container">
+				<div class="service-card">
+					<h2>📸 Fotografías Profesionales</h2>
+					<ul>
+						<li>Fotografía para Permisos</li>
+						<li>Fotografía tipo Visa</li>
+						<li>Fotografía tipo carnet</li>
+					</ul>
+				</div>
+
+				<div class="service-card">
+					<h2>🖼️ Revelado y Edición</h2>
+					<ul>
+						<li>Revelado digital de alta calidad</li>
+						<li>Retoque profesional</li>
+						<li>Restauración de fotografías antiguas</li>
+					</ul>
+				</div>
+
+				<div class="service-card">
+					<h2>🎞️ Servicios Analógicos</h2>
+					<ul>
+						<li>Revelado de rollos </li>
+						<li>Digitalización de negativos</li>
+						<li>Venta de material analógico (Roollos) </li>
+					</ul>
+				</div>
+
+				<div class="service-card">
+					<h2>🖨️ Impresión Profesional</h2>
+					<ul>
+						<li>Impresión en diferentes formatos</li>
+						<li>Fotografías en alta resolución</li>
+						<li>Productos personalizados</li>
+						<li>Enmarcado profesional</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.services-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		max-width: 1200px;
+		width: 100%;
+		padding: 1rem;
+	}
+
+	.service-card {
+		background: white;
+		border-radius: 10px;
+		padding: 2rem;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+	}
+
+	.service-card h2 {
+		margin-top: 0;
+		margin-bottom: 1.5rem;
+		color: #333;
+		font-size: 1.5rem;
+	}
+
+	.service-card ul {
+		list-style-type: none;
+		padding-left: 0;
+		margin: 0;
+	}
+
+	.service-card li {
+		padding: 0.5rem 0;
+		border-bottom: 1px solid #f0f0f0;
+		display: flex;
+		align-items: center;
+	}
+
+	.service-card li:last-child {
+		border-bottom: none;
+	}
+
+	.service-card li::before {
+		content: "•";
+		color: #FF5722;
+		font-weight: bold;
+		display: inline-block;
+		width: 1em;
+		margin-left: -1em;
+	}
+
+	@media (max-width: 768px) {
+		.services-container {
+			grid-template-columns: 1fr;
+			padding: 0;
+		}
+		
+		.service-card {
+			padding: 1.5rem;
+		}
+	}
+</style>

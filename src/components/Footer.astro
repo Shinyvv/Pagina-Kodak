@@ -1,0 +1,77 @@
+---
+import { SITE_TITLE } from '../consts';
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-content">
+		
+		<div class="footer-section">
+			<h3>Más de nosotros</h3>
+			<div class="social-links">
+				<a href="https://www.instagram.com/bandafotografica/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">Instagram</a>
+				<a href="https://wa.me/56971889041" target="_blank" rel="noopener">Whatsapp</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; {today.getFullYear()} {SITE_TITLE}. Todos los derechos reservados.</p>
+		<p>Made by <a href="https://www.linkedin.com/in/daniel-ignacio-shinya-gonzalez-03b358277/" target="_blank" rel="noopener">Daniel Shinya</a></p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		background: white;
+		padding: 2rem 1rem;
+		margin-top: 4rem;
+		box-shadow: 0 -2px 8px rgba(var(--black), 5%);
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.footer-section h3 {
+		margin-bottom: 1rem;
+		color: rgb(var(--black));
+	}
+
+	.social-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-links a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.social-links a:hover {
+		color: var(--accent);
+	}
+
+	.footer-bottom {
+		margin-top: 2rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgb(var(--gray-light));
+		text-align: center;
+		color: rgb(var(--gray));
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		.social-links {
+			justify-content: center;
+		}
+	}
+</style>

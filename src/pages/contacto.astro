@@ -1,0 +1,230 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <BaseHead title={`Contacto - ${SITE_TITLE}`} description="Contáctanos para cualquier consulta o servicio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <Header />
+        <main class="contact-main">
+            <div class="contact-content">
+                <h1 class="contact-title">Contáctanos</h1>
+                <p class="contact-intro">Estamos aquí para ayudarte. ¡Escríbenos o llámanos!</p>
+                
+                <div class="contact-card">
+                    <div class="contact-items">
+                        <!-- Teléfono móvil -->
+                        <a href="tel:+56971889041" class="contact-item mobile-item">
+                            <span class="contact-icon">📱</span>
+                            <div class="contact-details">
+                                <h3>Móvil / WhatsApp</h3>
+                                <p>+569 7188 9041</p>
+                                <span class="contact-action">Llamar o enviar mensaje →</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Teléfono fijo -->
+                        <a href="tel:+56228153293" class="contact-item">
+                            <span class="contact-icon">☎️</span>
+                            <div class="contact-details">
+                                <h3>Teléfono fijo</h3>
+                                <p>+562 2815 3293</p>
+                                <span class="contact-action">Llamar ahora →</span>
+                            </div>
+                        </a>
+                        
+                        <!-- Email -->
+                        <a href="mailto:fotografiatalagante@gmail.com" class="contact-item email-item">
+                            <span class="contact-icon">✉️</span>
+                            <div class="contact-details">
+                                <h3>Correo electrónico</h3>
+                                <p>fotografiatalagante@gmail.com</p>
+                                <span class="contact-action">Enviar email →</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Variables de diseño */
+    :root {
+        --primary: black;
+        --primary-dark: grey;
+        --text: #333333;
+        --text-light: #666666;
+        --card-bg: #FFFFFF;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Estilos base */
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        line-height: 1.6;
+        background-color: var(--background);
+    }
+    
+    .contact-main {
+        min-height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .contact-content {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    .contact-title {
+        text-align: center;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        color: var(--text);
+    }
+    
+    .contact-intro {
+        text-align: center;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        color: var(--text-light);
+        margin-bottom: 2rem;
+    }
+    
+    /* Tarjeta de contacto */
+    .contact-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+    
+    /* Items de contacto */
+    .contact-items {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-item:last-child {
+        border-bottom: none;
+    }
+    
+    .contact-item:hover {
+        background-color: #f9f9f9;
+        transform: translateX(5px);
+    }
+    
+    .mobile-item {
+        background-color: #f5f5f5;
+    }
+    
+    .contact-icon {
+        font-size: 2rem;
+        margin-right: 1.5rem;
+        min-width: 40px;
+        text-align: center;
+    }
+    
+    .contact-details {
+        flex: 1;
+    }
+    
+    .contact-details h3 {
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        margin: 0 0 0.3rem 0;
+        color: var(--text);
+    }
+    
+    .contact-details p {
+        margin: 0;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        color: var(--text-light);
+    }
+    
+    .contact-action {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--primary);
+        font-weight: 500;
+    }
+    
+    /* Efectos especiales para móvil */
+    .mobile-item {
+        position: relative;
+    }
+    
+    .mobile-item::after {
+        content: "WhatsApp disponible";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #25D366;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+    
+    /* Media queries para diferentes tamaños */
+    @media (max-width: 480px) {
+        .contact-main {
+            padding: 0.5rem;
+        }
+        
+        .contact-content {
+            padding: 0.5rem;
+        }
+        
+        .contact-item {
+            padding: 1.2rem;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-item::after {
+            position: static;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .contact-content {
+            max-width: 600px;
+        }
+        
+        .contact-card {
+            border-radius: 20px;
+        }
+    }
+</style>
