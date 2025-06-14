@@ -246,16 +246,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin-top: 2rem;
 	}
 
+	/* ===== CARD COMPONENTS - WHITE BACKGROUND, BLACK TEXT ===== */
 	.info-card {
-		background: white;
+		background: #FFFFFF; /* White background */
 		border-radius: 1rem;
 		overflow: hidden;
 		box-shadow: 0 4px 20px rgba(39, 39, 39, 0.1);
 		transition: all 0.3s ease;
 		text-decoration: none;
-		color: inherit;
+		color: #000000; /* Black text */
 		position: relative;
 		transform: translateY(0);
+		border: 1px solid rgba(0, 0, 0, 0.1);
 	}
 
 	.info-card:hover {
@@ -300,16 +302,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 	.card-content {
 		padding: 1.5rem;
+		background: #FFFFFF; /* Ensure white background */
 	}
 
 	.card-title {
 		font-size: 1.3rem;
 		margin-bottom: 0.5rem;
-		color: var(--text-primary);
+		color: #000000; /* Black text */
+		font-weight: 600;
 	}
 
 	.card-description {
-		color: var(--text-secondary);
+		color: #333333; /* Dark gray for better readability */
 		margin-bottom: 1rem;
 		line-height: 1.6;
 	}
@@ -333,13 +337,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin-top: 2rem;
 	}
 
+	/* ===== FEATURE CARDS - WHITE BACKGROUND, BLACK TEXT ===== */
 	.feature-item {
 		text-align: center;
 		padding: 2rem 1rem;
-		background: white;
+		background: #FFFFFF; /* White background */
 		border-radius: 1rem;
 		box-shadow: 0 4px 20px rgba(39, 39, 39, 0.08);
 		transition: transform 0.3s ease;
+		border: 1px solid rgba(0, 0, 0, 0.1);
 	}
 
 	.feature-item:hover {
@@ -353,12 +359,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 
 	.feature-item h3 {
-		color: var(--text-primary);
+		color: #000000; /* Black text */
 		margin-bottom: 1rem;
+		font-weight: 600;
 	}
 
 	.feature-item p {
-		color: var(--text-secondary);
+		color: #333333; /* Dark gray for better readability */
 		line-height: 1.6;
 	}
 
@@ -441,6 +448,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 		.hero {
 			background-attachment: scroll;
+		}
+	}
+
+	/* ===== HIGH CONTRAST MODE ===== */
+	@media (prefers-contrast: high) {
+		.info-card, .feature-item {
+			background: #FFFFFF;
+			border: 2px solid #000000;
+		}
+		
+		.card-title, .feature-item h3 {
+			color: #000000;
+		}
+		
+		.card-description, .feature-item p {
+			color: #000000;
 		}
 	}
 </style>

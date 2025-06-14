@@ -60,13 +60,28 @@ import { SITE_TITLE } from '../consts';
 		align-items: center;
 		justify-items: center;
 	}
+
+	/* ===== ADDRESS CARD - WHITE BACKGROUND, BLACK TEXT ===== */
 	.address {
 		padding: 2rem;
-		background: rgb(219, 216, 216);
+		background: #FFFFFF; /* White background */
 		border-radius: 8px;
 		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 		text-align: center;
+		border: 1px solid rgba(0, 0, 0, 0.1);
 	}
+
+	.address h2 {
+		color: #000000; /* Black text */
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.address p {
+		color: #333333; /* Dark gray for better readability */
+		margin: 0.5rem 0;
+	}
+
 	.map-iframe {
 		border-radius: 8px;
 		overflow: hidden;
@@ -75,6 +90,36 @@ import { SITE_TITLE } from '../consts';
 	@media (max-width: 768px) {
 		.location-info {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	/* ===== HIGH CONTRAST MODE ===== */
+	@media (prefers-contrast: high) {
+		.address {
+			background: #FFFFFF;
+			border: 2px solid #000000;
+		}
+		
+		.address h2 {
+			color: #000000;
+		}
+		
+		.address p {
+			color: #000000;
+		}
+	}
+
+	/* ===== PRINT STYLES ===== */
+	@media print {
+		.address {
+			break-inside: avoid;
+			box-shadow: none;
+			border: 1px solid #000000;
+			background: #FFFFFF;
+		}
+		
+		.address h2, .address p {
+			color: #000000;
 		}
 	}
 </style>

@@ -163,7 +163,7 @@ import { SITE_TITLE } from '../consts';
         padding: 0 clamp(1rem, 4vw, 2rem);
     }
     
-    /* ===== CONTACT CARDS ===== */
+    /* ===== CONTACT CARDS - WHITE BACKGROUND, BLACK TEXT ===== */
     .contact-cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -172,16 +172,16 @@ import { SITE_TITLE } from '../consts';
     }
     
     .contact-card {
-        background: white;
+        background: #FFFFFF; /* White background */
         border-radius: 20px;
         padding: 2rem;
         text-decoration: none;
-        color: inherit;
+        color: #000000; /* Black text */
         box-shadow: var(--card-shadow);
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
         overflow: hidden;
-        border: 2px solid transparent;
+        border: 2px solid rgba(0, 0, 0, 0.1);
     }
 
     .contact-card::before {
@@ -261,7 +261,7 @@ import { SITE_TITLE } from '../consts';
     .card-title {
         font-size: 1.4rem;
         margin-bottom: 0.5rem;
-        color: var(--text-primary);
+        color: #000000; /* Black text */
         font-weight: 600;
     }
     
@@ -274,7 +274,7 @@ import { SITE_TITLE } from '../consts';
     }
     
     .card-description {
-        color: var(--text-secondary);
+        color: #333333; /* Dark gray for better readability */
         margin-bottom: 1.5rem;
         line-height: 1.6;
     }
@@ -288,7 +288,7 @@ import { SITE_TITLE } from '../consts';
     
     .feature-tag {
         background: rgba(242, 234, 5, 0.1);
-        color: var(--text-primary);
+        color: #000000; /* Black text */
         padding: 0.3rem 0.8rem;
         border-radius: 12px;
         font-size: 0.85rem;
@@ -349,7 +349,7 @@ import { SITE_TITLE } from '../consts';
         color: var(--phone-color);
     }
 
-    /* ===== CONTACT INFO SECTION ===== */
+    /* ===== CONTACT INFO SECTION - WHITE BACKGROUND, BLACK TEXT ===== */
     .contact-info {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -357,20 +357,22 @@ import { SITE_TITLE } from '../consts';
     }
     
     .info-card {
-        background: white;
+        background: #FFFFFF; /* White background */
         border-radius: 16px;
         padding: 2rem;
         box-shadow: var(--card-shadow);
         border-left: 4px solid var(--primary-yellow);
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     .info-title {
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-        color: var(--text-primary);
+        color: #000000; /* Black text */
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        font-weight: 600;
     }
     
     .info-list {
@@ -382,7 +384,7 @@ import { SITE_TITLE } from '../consts';
     .info-list li {
         padding: 0.8rem 0;
         border-bottom: 1px solid rgba(39, 39, 39, 0.1);
-        color: var(--text-secondary);
+        color: #333333; /* Dark gray for better readability */
         position: relative;
         padding-left: 1.5rem;
     }
@@ -405,7 +407,11 @@ import { SITE_TITLE } from '../consts';
     
     .schedule-summary p {
         margin: 0.5rem 0;
-        color: var(--text-secondary);
+        color: #333333; /* Dark gray for better readability */
+    }
+
+    .schedule-summary strong {
+        color: #000000; /* Black text for emphasis */
     }
     
     .schedule-link {
@@ -516,40 +522,54 @@ import { SITE_TITLE } from '../consts';
 
     /* ===== HIGH CONTRAST MODE ===== */
     @media (prefers-contrast: high) {
-        .contact-card {
-            border: 2px solid black;
+        .contact-card, .info-card {
+            border: 2px solid #000000;
+            background: #FFFFFF;
         }
         
         .contact-title {
             background: none;
-            -webkit-text-fill-color: black;
-            color: black;
+            -webkit-text-fill-color: #000000;
+            color: #000000;
         }
         
         .card-badge {
-            background: black;
-            color: white;
+            background: #000000;
+            color: #FFFFFF;
         }
         
         .feature-tag {
-            background: black;
-            color: white;
-            border-color: black;
+            background: #FFFFFF;
+            color: #000000;
+            border-color: #000000;
+        }
+
+        .card-title, .info-title {
+            color: #000000;
+        }
+
+        .card-description, .info-list li, .schedule-summary p {
+            color: #000000;
         }
     }
 
     /* ===== PRINT STYLES ===== */
     @media print {
-        .contact-card {
+        .contact-card, .info-card {
             break-inside: avoid;
             box-shadow: none;
-            border: 1px solid black;
+            border: 1px solid #000000;
+            background: #FFFFFF;
         }
         
         .card-badge {
             background: transparent;
-            color: black;
-            border: 1px solid black;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+
+        .card-title, .info-title, .card-description, .info-list li {
+            color: #000000;
         }
     }
 </style>
