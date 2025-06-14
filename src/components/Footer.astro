@@ -3,75 +3,391 @@ import { SITE_TITLE } from '../consts';
 const today = new Date();
 ---
 
-<footer>
+<footer class="site-footer">
 	<div class="footer-content">
+		<div class="footer-brand">
+			<h3 class="footer-logo">{SITE_TITLE}</h3>
+			<p class="footer-description">
+				Tu lugar de confianza para servicios fotográficos profesionales en Talagante.
+			</p>
+		</div>
 		
 		<div class="footer-section">
-			<h3>Más de nosotros</h3>
+			<h4 class="footer-title">Más de nosotros</h4>
 			<div class="social-links">
-				<a href="https://www.instagram.com/bandafotografica/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener">Instagram</a>
-				<a href="https://wa.me/56971889041" target="_blank" rel="noopener">Whatsapp</a>
+				<a href="https://www.instagram.com/bandafotografica/?utm_source=ig_web_button_share_sheet" 
+				   target="_blank" 
+				   rel="noopener"
+				   class="social-link instagram">
+					<span class="social-icon">📷</span>
+					Instagram
+				</a>
+				<a href="https://wa.me/56971889041" 
+				   target="_blank" 
+				   rel="noopener"
+				   class="social-link whatsapp">
+					<span class="social-icon">💬</span>
+					WhatsApp
+				</a>
+			</div>
+		</div>
+
+		<div class="footer-section">
+			<h4 class="footer-title">Contacto Rápido</h4>
+			<div class="contact-info">
+				<p class="contact-item">
+					<span class="contact-icon">📍</span>
+					Av. Bernardo O'Higgins 997, Talagante
+				</p>
+				<p class="contact-item">
+					<span class="contact-icon">📞</span>
+					+569 7188 9041
+				</p>
 			</div>
 		</div>
 	</div>
+
 	<div class="footer-bottom">
-		<p>&copy; {today.getFullYear()} {SITE_TITLE}. Todos los derechos reservados.</p>
-		<p>Made by <a href="https://www.linkedin.com/in/daniel-ignacio-shinya-gonzalez-03b358277/" target="_blank" rel="noopener">Daniel Shinya</a></p>
+		<div class="footer-bottom-content">
+			<p class="copyright">
+				&copy; {today.getFullYear()} {SITE_TITLE}. Todos los derechos reservados.
+			</p>
+			<p class="credits">
+				Hecho con ❤️ por 
+				<a href="https://www.linkedin.com/in/daniel-ignacio-shinya-gonzalez-03b358277/" 
+				   target="_blank" 
+				   rel="noopener"
+				   class="credit-link">Daniel Shinya</a>
+			</p>
+		</div>
 	</div>
 </footer>
 
 <style>
-	footer {
-		background: white;
-		padding: 2rem 1rem;
+	/* ===== FOOTER VARIABLES ===== */
+	:root {
+		--footer-bg: linear-gradient(135deg, var(--raisin-black) 0%, #1a1a1a 100%);
+		--footer-text: rgba(255, 255, 255, 0.9);
+		--footer-text-secondary: rgba(255, 255, 255, 0.7);
+		--footer-border: rgba(242, 234, 5, 0.3);
+	}
+
+	/* ===== FOOTER BASE ===== */
+	.site-footer {
+		background: var(--footer-bg);
+		color: var(--footer-text);
 		margin-top: 4rem;
-		box-shadow: 0 -2px 8px rgba(var(--black), 5%);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.site-footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(90deg, var(--primary-yellow), var(--primary-red));
 	}
 
 	.footer-content {
 		max-width: 1200px;
 		margin: 0 auto;
+		padding: 3rem clamp(1rem, 4vw, 2rem) 2rem;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		gap: 2rem;
+		align-items: start;
 	}
 
-	.footer-section h3 {
+	/* ===== FOOTER BRAND ===== */
+	.footer-brand {
+		max-width: 350px;
+	}
+
+	.footer-logo {
+		font-size: clamp(1.5rem, 4vw, 2rem);
 		margin-bottom: 1rem;
-		color: rgb(var(--black));
+		background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: 700;
 	}
 
+	.footer-description {
+		color: var(--footer-text-secondary);
+		line-height: 1.6;
+		margin-bottom: 0;
+	}
+
+	/* ===== FOOTER SECTIONS ===== */
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footer-title {
+		font-size: 1.2rem;
+		margin-bottom: 1.5rem;
+		color: var(--footer-text);
+		font-weight: 600;
+		position: relative;
+		padding-bottom: 0.5rem;
+	}
+
+	.footer-title::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 30px;
+		height: 2px;
+		background: linear-gradient(90deg, var(--primary-yellow), var(--primary-red));
+		border-radius: 1px;
+	}
+
+	/* ===== SOCIAL LINKS ===== */
 	.social-links {
 		display: flex;
+		flex-direction: column;
 		gap: 1rem;
 	}
 
-	.social-links a {
-		color: rgb(var(--gray));
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		padding: 0.8rem 1rem;
+		color: var(--footer-text-secondary);
 		text-decoration: none;
-		transition: color 0.3s ease;
+		border-radius: 12px;
+		transition: all 0.3s ease;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
 	}
 
-	.social-links a:hover {
-		color: var(--accent);
+	.social-link::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, rgba(242, 234, 5, 0.1), rgba(255, 0, 0, 0.1));
+		transition: left 0.3s ease;
+		z-index: 0;
 	}
 
+	.social-link:hover::before {
+		left: 0;
+	}
+
+	.social-link:hover {
+		color: var(--footer-text);
+		transform: translateX(5px);
+		border-color: var(--primary-yellow);
+		box-shadow: 0 4px 15px rgba(242, 234, 5, 0.2);
+	}
+
+	.social-icon {
+		font-size: 1.2rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.social-link span:not(.social-icon) {
+		position: relative;
+		z-index: 1;
+	}
+
+	/* ===== CONTACT INFO ===== */
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.contact-item {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		color: var(--footer-text-secondary);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.contact-icon {
+		font-size: 1.1rem;
+		min-width: 20px;
+	}
+
+	/* ===== FOOTER BOTTOM ===== */
 	.footer-bottom {
-		margin-top: 2rem;
-		padding-top: 1rem;
-		border-top: 1px solid rgb(var(--gray-light));
-		text-align: center;
-		color: rgb(var(--gray));
+		border-top: 1px solid var(--footer-border);
+		background: rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
 	}
 
+	.footer-bottom-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1.5rem clamp(1rem, 4vw, 2rem);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.copyright, .credits {
+		margin: 0;
+		color: var(--footer-text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.credit-link {
+		color: var(--primary-yellow);
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	.credit-link::after {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background: var(--primary-yellow);
+		transition: width 0.3s ease;
+	}
+
+	.credit-link:hover {
+		color: var(--primary-red);
+		transform: translateY(-1px);
+	}
+
+	.credit-link:hover::after {
+		width: 100%;
+		background: var(--primary-red);
+	}
+
+	/* ===== RESPONSIVE DESIGN ===== */
 	@media (max-width: 768px) {
 		.footer-content {
 			grid-template-columns: 1fr;
 			text-align: center;
+			padding: 2rem 1rem 1.5rem;
+			gap: 2.5rem;
+		}
+
+		.footer-brand {
+			max-width: none;
+		}
+
+		.footer-title::after {
+			left: 50%;
+			transform: translateX(-50%);
 		}
 
 		.social-links {
+			align-items: center;
+		}
+
+		.social-link {
 			justify-content: center;
+			max-width: 200px;
+			margin: 0 auto;
+		}
+
+		.contact-info {
+			align-items: center;
+		}
+
+		.contact-item {
+			justify-content: center;
+			max-width: 250px;
+			margin: 0 auto;
+		}
+
+		.footer-bottom-content {
+			flex-direction: column;
+			text-align: center;
+			gap: 0.5rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer-content {
+			padding: 1.5rem 1rem 1rem;
+		}
+
+		.footer-logo {
+			font-size: 1.5rem;
+		}
+
+		.social-link {
+			padding: 0.6rem 0.8rem;
+			font-size: 0.9rem;
+		}
+
+		.contact-item {
+			font-size: 0.9rem;
+		}
+	}
+
+	/* ===== ACCESSIBILITY ===== */
+	@media (prefers-reduced-motion: reduce) {
+		.social-link,
+		.credit-link {
+			transition: none;
+		}
+
+		.social-link:hover {
+			transform: none;
+		}
+
+		.credit-link:hover {
+			transform: none;
+		}
+	}
+
+	/* ===== HIGH CONTRAST MODE ===== */
+	@media (prefers-contrast: high) {
+		.site-footer {
+			background: black;
+			color: white;
+		}
+
+		.footer-logo {
+			background: none;
+			-webkit-text-fill-color: white;
+			color: white;
+		}
+
+		.social-link {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: white;
+		}
+
+		.social-link:hover {
+			background: white;
+			color: black;
+		}
+
+		.credit-link {
+			color: white;
+		}
+
+		.credit-link:hover {
+			color: yellow;
 		}
 	}
 </style>

@@ -14,41 +14,93 @@ import { SITE_TITLE } from '../consts';
     <body>
         <Header />
         <main class="contact-main">
-            <div class="contact-content">
+            <div class="contact-hero">
                 <h1 class="contact-title">Contáctanos</h1>
                 <p class="contact-intro">Estamos aquí para ayudarte. ¡Escríbenos o llámanos!</p>
-                
-                <div class="contact-card">
-                    <div class="contact-items">
-                        <!-- Teléfono móvil -->
-                        <a href="tel:+56971889041" class="contact-item mobile-item">
-                            <span class="contact-icon">📱</span>
-                            <div class="contact-details">
-                                <h3>Móvil / WhatsApp</h3>
-                                <p>+569 7188 9041</p>
-                                <span class="contact-action">Llamar o enviar mensaje →</span>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-cards">
+                    <!-- WhatsApp / Móvil -->
+                    <a href="tel:+56971889041" class="contact-card whatsapp-card">
+                        <div class="card-header">
+                            <div class="contact-icon whatsapp-icon">📱</div>
+                            <div class="card-badge">Recomendado</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Móvil / WhatsApp</h3>
+                            <p class="card-number">+569 7188 9041</p>
+                            <p class="card-description">Respuesta rápida por WhatsApp o llamada directa</p>
+                            <div class="card-features">
+                                <span class="feature-tag">✓ WhatsApp disponible</span>
+                                <span class="feature-tag">✓ Llamadas</span>
                             </div>
-                        </a>
-                        
-                        <!-- Teléfono fijo -->
-                        <a href="tel:+56228153293" class="contact-item">
-                            <span class="contact-icon">☎️</span>
-                            <div class="contact-details">
-                                <h3>Teléfono fijo</h3>
-                                <p>+562 2815 3293</p>
-                                <span class="contact-action">Llamar ahora →</span>
+                        </div>
+                        <div class="card-action">
+                            <span class="action-text">Contactar ahora</span>
+                            <span class="action-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Teléfono fijo -->
+                    <a href="tel:+56228153293" class="contact-card phone-card">
+                        <div class="card-header">
+                            <div class="contact-icon phone-icon">☎️</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Teléfono Fijo</h3>
+                            <p class="card-number">+562 2815 3293</p>
+                            <p class="card-description">Línea fija para consultas durante horario comercial</p>
+                            <div class="card-features">
+                                <span class="feature-tag">✓ Horario comercial</span>
                             </div>
-                        </a>
-                        
-                        <!-- Email -->
-                        <a href="mailto:fotografiatalagante@gmail.com" class="contact-item email-item">
-                            <span class="contact-icon">✉️</span>
-                            <div class="contact-details">
-                                <h3>Correo electrónico</h3>
-                                <p>fotografiatalagante@gmail.com</p>
-                                <span class="contact-action">Enviar email →</span>
+                        </div>
+                        <div class="card-action">
+                            <span class="action-text">Llamar ahora</span>
+                            <span class="action-arrow">→</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Email -->
+                    <a href="mailto:fotografiatalagante@gmail.com" class="contact-card email-card">
+                        <div class="card-header">
+                            <div class="contact-icon email-icon">✉️</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Correo Electrónico</h3>
+                            <p class="card-number">fotografiatalagante@gmail.com</p>
+                            <p class="card-description">Envíanos tus consultas detalladas por email</p>
+                            <div class="card-features">
+                                <span class="feature-tag">✓ Consultas detalladas</span>
                             </div>
-                        </a>
+                        </div>
+                        <div class="card-action">
+                            <span class="action-text">Enviar email</span>
+                            <span class="action-arrow">→</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Información adicional -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3 class="info-title">💡 Consejos para contactarnos</h3>
+                        <ul class="info-list">
+                            <li>Para consultas rápidas, usa WhatsApp</li>
+                            <li>Para presupuestos detallados, envía un email</li>
+                            <li>Menciona el tipo de servicio que necesitas</li>
+                            <li>Incluye fechas y horarios preferidos</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-title">⏰ Horarios de Atención</h3>
+                        <div class="schedule-summary">
+                            <p><strong>Lunes a Viernes:</strong> 9:30 - 18:30</p>
+                            <p><strong>Sábados:</strong> 10:00 - 18:30</p>
+                            <p><strong>Domingos:</strong> Cerrado</p>
+                        </div>
+                        <a href="/horario" class="schedule-link">Ver horarios completos →</a>
                     </div>
                 </div>
             </div>
@@ -58,173 +110,446 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <style>
-    /* Variables de diseño */
+    /* ===== CONTACT PAGE VARIABLES ===== */
     :root {
-        --primary: black;
-        --primary-dark: grey;
-        --text: #333333;
-        --text-light: #666666;
-        --card-bg: #FFFFFF;
-        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --contact-gradient: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-red) 100%);
+        --card-shadow: 0 8px 32px rgba(39, 39, 39, 0.1);
+        --card-shadow-hover: 0 16px 48px rgba(39, 39, 39, 0.15);
+        --whatsapp-color: #25D366;
+        --phone-color: var(--cadet-gray);
+        --email-color: var(--primary-red);
     }
     
-    /* Estilos base */
+    /* ===== BASE STYLES ===== */
     body {
         margin: 0;
-        font-family: 'Segoe UI', system-ui, sans-serif;
-        line-height: 1.6;
-        background-color: var(--background);
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     }
     
     .contact-main {
-        min-height: calc(100vh - 120px);
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
+        min-height: calc(100vh - 200px);
+        padding: 2rem 0;
     }
-    
-    .contact-content {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 1rem;
+
+    /* ===== HERO SECTION ===== */
+    .contact-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
     }
     
     .contact-title {
-        text-align: center;
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-        margin-bottom: 0.5rem;
-        color: var(--text);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: 1rem;
+        background: var(--contact-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
     }
     
     .contact-intro {
-        text-align: center;
-        font-size: clamp(1rem, 3vw, 1.2rem);
-        color: var(--text-light);
-        margin-bottom: 2rem;
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* ===== CONTACT CONTAINER ===== */
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 clamp(1rem, 4vw, 2rem);
     }
     
-    /* Tarjeta de contacto */
+    /* ===== CONTACT CARDS ===== */
+    .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
     .contact-card {
-        background: var(--card-bg);
-        border-radius: 16px;
-        box-shadow: var(--shadow);
-        overflow: hidden;
-    }
-    
-    /* Items de contacto */
-    .contact-items {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .contact-item {
-        display: flex;
-        align-items: center;
-        padding: 1.5rem;
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
         text-decoration: none;
         color: inherit;
-        border-bottom: 1px solid #f0f0f0;
-        transition: all 0.3s ease;
+        box-shadow: var(--card-shadow);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid transparent;
+    }
+
+    .contact-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--contact-gradient);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .contact-card:hover::before {
+        opacity: 0.05;
     }
     
-    .contact-item:last-child {
-        border-bottom: none;
+    .contact-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--card-shadow-hover);
+        border-color: var(--primary-yellow);
     }
-    
-    .contact-item:hover {
-        background-color: #f9f9f9;
-        transform: translateX(5px);
-    }
-    
-    .mobile-item {
-        background-color: #f5f5f5;
+
+    /* ===== CARD COMPONENTS ===== */
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
     }
     
     .contact-icon {
-        font-size: 2rem;
-        margin-right: 1.5rem;
-        min-width: 40px;
-        text-align: center;
+        font-size: 3rem;
+        padding: 1rem;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+        transform: scale(1.1);
+    }
+
+    .whatsapp-icon {
+        background: rgba(37, 211, 102, 0.1);
+    }
+
+    .phone-icon {
+        background: rgba(144, 169, 183, 0.1);
+    }
+
+    .email-icon {
+        background: rgba(255, 0, 0, 0.1);
     }
     
-    .contact-details {
-        flex: 1;
-    }
-    
-    .contact-details h3 {
-        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-        margin: 0 0 0.3rem 0;
-        color: var(--text);
-    }
-    
-    .contact-details p {
-        margin: 0;
-        font-size: clamp(1rem, 3vw, 1.1rem);
-        color: var(--text-light);
-    }
-    
-    .contact-action {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--primary);
-        font-weight: 500;
-    }
-    
-    /* Efectos especiales para móvil */
-    .mobile-item {
-        position: relative;
-    }
-    
-    .mobile-item::after {
-        content: "WhatsApp disponible";
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: #25D366;
+    .card-badge {
+        background: var(--contact-gradient);
         color: white;
-        padding: 0.2rem 0.5rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+    }
+    
+    .card-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    
+    .card-number {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-red);
+        margin-bottom: 1rem;
+        font-family: 'Monaco', 'Menlo', monospace;
+    }
+    
+    .card-description {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .card-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-tag {
+        background: rgba(242, 234, 5, 0.1);
+        color: var(--text-primary);
+        padding: 0.3rem 0.8rem;
         border-radius: 12px;
-        font-size: 0.7rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid rgba(242, 234, 5, 0.3);
+    }
+    
+    .card-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(39, 39, 39, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .action-text {
+        color: var(--primary-red);
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    .action-arrow {
+        color: var(--primary-red);
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .contact-card:hover .action-arrow {
+        transform: translateX(5px);
+    }
+
+    /* ===== CARD SPECIFIC STYLES ===== */
+    .whatsapp-card:hover {
+        border-color: var(--whatsapp-color);
+    }
+
+    .whatsapp-card .card-number {
+        color: var(--whatsapp-color);
+    }
+
+    .whatsapp-card .action-text,
+    .whatsapp-card .action-arrow {
+        color: var(--whatsapp-color);
+    }
+
+    .phone-card:hover {
+        border-color: var(--phone-color);
+    }
+
+    .phone-card .card-number {
+        color: var(--phone-color);
+    }
+
+    .phone-card .action-text,
+    .phone-card .action-arrow {
+        color: var(--phone-color);
+    }
+
+    /* ===== CONTACT INFO SECTION ===== */
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .info-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--card-shadow);
+        border-left: 4px solid var(--primary-yellow);
+    }
+    
+    .info-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .info-list li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(39, 39, 39, 0.1);
+        color: var(--text-secondary);
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .info-list li:last-child {
+        border-bottom: none;
+    }
+
+    .info-list li::before {
+        content: '•';
+        color: var(--primary-red);
         font-weight: bold;
+        position: absolute;
+        left: 0;
     }
     
-    /* Media queries para diferentes tamaños */
-    @media (max-width: 480px) {
+    .schedule-summary {
+        margin-bottom: 1.5rem;
+    }
+    
+    .schedule-summary p {
+        margin: 0.5rem 0;
+        color: var(--text-secondary);
+    }
+    
+    .schedule-link {
+        color: var(--primary-red);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .schedule-link:hover {
+        color: var(--red-dark);
+        transform: translateX(3px);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
         .contact-main {
-            padding: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .contact-hero {
+            margin-bottom: 2rem;
         }
         
-        .contact-content {
-            padding: 0.5rem;
-        }
-        
-        .contact-item {
-            padding: 1.2rem;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .contact-icon {
-            margin-right: 0;
-            margin-bottom: 1rem;
-        }
-        
-        .mobile-item::after {
-            position: static;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-    }
-    
-    @media (min-width: 768px) {
-        .contact-content {
-            max-width: 600px;
+        .contact-cards {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
         
         .contact-card {
-            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            padding: 0.8rem;
+        }
+        
+        .contact-info {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .info-card {
+            padding: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .contact-card {
+            padding: 1.2rem;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+        }
+        
+        .card-number {
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            padding: 0.6rem;
+        }
+        
+        .feature-tag {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+        }
+    }
+
+    /* ===== ACCESSIBILITY ===== */
+    @media (prefers-reduced-motion: reduce) {
+        .contact-card,
+        .contact-icon,
+        .action-arrow,
+        .schedule-link {
+            transition: none;
+        }
+        
+        .contact-card:hover {
+            transform: none;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: none;
+        }
+        
+        .contact-card:hover .action-arrow {
+            transform: none;
+        }
+        
+        .schedule-link:hover {
+            transform: none;
+        }
+    }
+
+    /* ===== HIGH CONTRAST MODE ===== */
+    @media (prefers-contrast: high) {
+        .contact-card {
+            border: 2px solid black;
+        }
+        
+        .contact-title {
+            background: none;
+            -webkit-text-fill-color: black;
+            color: black;
+        }
+        
+        .card-badge {
+            background: black;
+            color: white;
+        }
+        
+        .feature-tag {
+            background: black;
+            color: white;
+            border-color: black;
+        }
+    }
+
+    /* ===== PRINT STYLES ===== */
+    @media print {
+        .contact-card {
+            break-inside: avoid;
+            box-shadow: none;
+            border: 1px solid black;
+        }
+        
+        .card-badge {
+            background: transparent;
+            color: black;
+            border: 1px solid black;
         }
     }
 </style>
