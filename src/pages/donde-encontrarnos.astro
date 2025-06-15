@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`¿Dónde Encontrarnos? - ${SITE_TITLE}`} description="Nuestra ubicación" />
 	</head>
-	<body>
+	<body style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
 		<Header />
 		<main>
 			<h1>¿Dónde Encontrarnos?</h1>
@@ -41,6 +41,7 @@ import { SITE_TITLE } from '../consts';
 	body {
 		margin: 0;
 		padding: 0;
+		/* background gradient applied inline */
 	}
 	main {
 		display: flex;
@@ -61,24 +62,30 @@ import { SITE_TITLE } from '../consts';
 		justify-items: center;
 	}
 
-	/* ===== ADDRESS CARD - WHITE BACKGROUND, BLACK TEXT ===== */
+	/* ===== ADDRESS CARD ===== */
 	.address {
 		padding: 2rem;
-		background: #FFFFFF; /* White background */
-		border-radius: 8px;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		background: #FFFFFF; 
+		border-radius: 1rem; /* Standardized radius */
+		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1); /* Standardized shadow */
 		text-align: center;
-		border: 1px solid rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(0, 0, 0, 0.1); /* Standardized border */
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.address:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
 	}
 
 	.address h2 {
-		color: #000000; /* Black text */
+		color: #000000; 
 		font-weight: 600;
 		margin-bottom: 1rem;
 	}
 
 	.address p {
-		color: #333333; /* Dark gray for better readability */
+		color: #000000; /* Changed to black */
 		margin: 0.5rem 0;
 	}
 

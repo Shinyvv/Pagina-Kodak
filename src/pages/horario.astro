@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`Horario - ${SITE_TITLE}`} description="Nuestros horarios de atención" />
 	</head>
-	<body>
+	<body style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
 		<Header />
 		<main>
 			<h1 style="text-align: center;">Horario de Atención</h1>
@@ -69,6 +69,7 @@ import { SITE_TITLE } from '../consts';
 	body {
 		margin: 0;
 		padding: 0;
+		/* background gradient applied inline */
 	}
 	main {
 		display: flex;
@@ -85,21 +86,29 @@ import { SITE_TITLE } from '../consts';
 		max-width: 900px;
 	}
 
-	/* ===== SCHEDULE AND INFO CARDS - WHITE BACKGROUND, BLACK TEXT ===== */
+	/* ===== SCHEDULE AND INFO CARDS ===== */
 	.schedule-card, .info-card {
-		background: #FFFFFF; /* White background */
+		background: #FFFFFF; 
 		padding: 2rem;
-		border-radius: 8px;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		border-radius: 1rem; /* Standardized radius */
+		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1); /* Standardized shadow */
 		width: 100%;
 		max-width: 400px;
 		margin: 0 auto;
-		border: 1px solid rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(0, 0, 0, 0.1); /* Standardized border */
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 	}
 
+	.schedule-card:hover, .info-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
+	}
+
+
 	.schedule-card h2, .info-card h2 {
-		color: #000000; /* Black text */
+		color: #000000; 
 		font-weight: 600;
+		text-align: center; /* Kept from original */
 	}
 
 	.schedule-table {
@@ -111,12 +120,12 @@ import { SITE_TITLE } from '../consts';
 	}
 	.schedule-table td {
 		padding: 1rem 0;
-		color: #333333; /* Dark gray for better readability */
+		color: #000000; /* Changed to black */
 	}
 	.schedule-table td:last-child {
 		text-align: right;
 		font-weight: bold;
-		color: #000000; /* Black text for emphasis */
+		color: #000000; 
 	}
 	.info-card ul {
 		list-style-type: none;
@@ -126,14 +135,14 @@ import { SITE_TITLE } from '../consts';
 	.info-card li {
 		padding: 0.5rem 0;
 		border-bottom: 1px solid #eee;
-		color: #333333; /* Dark gray for better readability */
+		color: #000000; /* Changed to black */
 	}
 	.contact-info {
 		margin-top: 2rem;
 	}
 	.contact-info h3 {
 		margin-bottom: 1rem;
-		color: #000000; /* Black text */
+		color: #000000; 
 	}
 
 	/* ===== HIGH CONTRAST MODE ===== */

@@ -10,7 +10,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
 		<Header />
 		<main>
 			<section class="hero">
@@ -98,11 +98,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						<div class="feature-icon">⚡</div>
 						<h3>Servicio Rápido</h3>
 						<p>Atención eficiente y resultados en tiempo récord</p>
-					</div>
-					<div class="feature-item">
-						<div class="feature-icon">🎯</div>
-						<h3>Calidad Profesional</h3>
-						<p>Equipos de última generación y técnicos especializados</p>
 					</div>
 					<div class="feature-item">
 						<div class="feature-icon">💝</div>
@@ -246,23 +241,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin-top: 2rem;
 	}
 
-	/* ===== CARD COMPONENTS - WHITE BACKGROUND, BLACK TEXT ===== */
+	/* ===== INFO CARD STYLES ===== */
 	.info-card {
-		background: #FFFFFF; /* White background */
+		background: #FFFFFF;
 		border-radius: 1rem;
 		overflow: hidden;
-		box-shadow: 0 4px 20px rgba(39, 39, 39, 0.1);
-		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		text-decoration: none;
-		color: #000000; /* Black text */
-		position: relative;
-		transform: translateY(0);
+		color: #000000;
 		border: 1px solid rgba(0, 0, 0, 0.1);
 	}
 
 	.info-card:hover {
-		transform: translateY(-8px);
-		box-shadow: 0 12px 40px rgba(39, 39, 39, 0.15);
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
 	}
 
 	.card-image {
@@ -286,34 +279,34 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		position: absolute;
 		top: 1rem;
 		right: 1rem;
-		background: rgba(255, 255, 255, 0.9);
+		background: rgba(255, 255, 255, 0.8); /* Slightly less opaque for subtlety */
 		border-radius: 50%;
-		width: 50px;
-		height: 50px;
+		width: 40px; /* Adjusted size */
+		height: 40px; /* Adjusted size */
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		backdrop-filter: blur(10px);
+		/* backdrop-filter: blur(5px); -- Optional: removed for wider compatibility/simplicity */
 	}
 
 	.card-icon {
-		font-size: 1.5rem;
+		font-size: 1.25rem; /* Adjusted size */
 	}
 
 	.card-content {
 		padding: 1.5rem;
-		background: #FFFFFF; /* Ensure white background */
+		background: #FFFFFF; 
 	}
 
 	.card-title {
 		font-size: 1.3rem;
 		margin-bottom: 0.5rem;
-		color: #000000; /* Black text */
+		color: #000000; 
 		font-weight: 600;
 	}
 
 	.card-description {
-		color: #333333; /* Dark gray for better readability */
+		color: #333333; 
 		margin-bottom: 1rem;
 		line-height: 1.6;
 	}
@@ -337,19 +330,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin-top: 2rem;
 	}
 
-	/* ===== FEATURE CARDS - WHITE BACKGROUND, BLACK TEXT ===== */
+	/* ===== FEATURE ITEM STYLES ===== */
 	.feature-item {
 		text-align: center;
 		padding: 2rem 1rem;
-		background: #FFFFFF; /* White background */
+		background: #FFFFFF;
 		border-radius: 1rem;
-		box-shadow: 0 4px 20px rgba(39, 39, 39, 0.08);
-		transition: transform 0.3s ease;
+		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		border: 1px solid rgba(0, 0, 0, 0.1);
 	}
 
 	.feature-item:hover {
-		transform: translateY(-4px);
+		transform: translateY(-5px);
+		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
 	}
 
 	.feature-icon {
@@ -359,13 +353,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 
 	.feature-item h3 {
-		color: #000000; /* Black text */
+		color: #000000; 
 		margin-bottom: 1rem;
 		font-weight: 600;
 	}
 
 	.feature-item p {
-		color: #333333; /* Dark gray for better readability */
+		color: #333333; 
 		line-height: 1.6;
 	}
 
@@ -453,7 +447,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 	/* ===== HIGH CONTRAST MODE ===== */
 	@media (prefers-contrast: high) {
-		.info-card, .feature-item {
+		.info-card, .feature_item {
 			background: #FFFFFF;
 			border: 2px solid #000000;
 		}
@@ -464,6 +458,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		
 		.card-description, .feature-item p {
 			color: #000000;
+		}
+		.card-overlay {
+			background: #FFFFFF;
+			border: 1px solid #000000;
 		}
 	}
 </style>

@@ -10,7 +10,7 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`Servicios - ${SITE_TITLE}`} description="Descubre los servicios profesionales que ofrecemos" />
 	</head>
-	<body style="display: flex; flex-direction: column; min-height: 100vh;">
+	<body> {/* Removed inline styles, will be handled in <style> */}
 		<Header />
 		<main style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
 			<h1 style="text-align: center; margin-bottom: 2rem;">Nuestros Servicios</h1>
@@ -58,6 +58,14 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <style>
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+		margin: 0; /* Ensure no default margin */
+	}
+
 	.services-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -67,25 +75,25 @@ import { SITE_TITLE } from '../consts';
 		padding: 1rem;
 	}
 
-	/* ===== SERVICE CARDS - WHITE BACKGROUND, BLACK TEXT ===== */
+	/* ===== SERVICE CARD STYLES ===== */
 	.service-card {
-		background: #FFFFFF; /* White background */
-		border-radius: 10px;
+		background: #FFFFFF;
+		border-radius: 1rem; /* Standardized radius */
 		padding: 2rem;
-		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1); /* Standardized shadow */
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		border: 1px solid rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(0, 0, 0, 0.1); /* Standardized border */
 	}
 
 	.service-card:hover {
 		transform: translateY(-5px);
-		box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
 	}
 
 	.service-card h2 {
 		margin-top: 0;
 		margin-bottom: 1.5rem;
-		color: #000000; /* Black text */
+		color: #000000; 
 		font-size: 1.5rem;
 		font-weight: 600;
 	}
@@ -101,7 +109,7 @@ import { SITE_TITLE } from '../consts';
 		border-bottom: 1px solid #f0f0f0;
 		display: flex;
 		align-items: center;
-		color: #333333; /* Dark gray for better readability */
+		color: #000000; /* Changed to black */
 	}
 
 	.service-card li:last-child {
