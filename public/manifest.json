@@ -1,0 +1,18 @@
+{
+  "name": "Banda Fotográfica Talagante",
+  "short_name": "Banda Fotográfica",
+  "description": "Servicios profesionales de fotografía en Talagante. Tu momento, nuestra pasión.",
+  "theme_color": "#FF0000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["photography", "business", "lifestyle"],
+  "lang": "es"
+}

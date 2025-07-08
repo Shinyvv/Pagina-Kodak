@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bandafotografica.cl/sitemap-index.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1

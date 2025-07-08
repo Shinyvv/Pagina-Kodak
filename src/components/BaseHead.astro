@@ -2,56 +2,161 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import { SITE_TITLE } from '../consts';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, SITE_AUTHOR, SITE_KEYWORDS, BUSINESS_NAME, BUSINESS_ADDRESS, BUSINESS_PHONE, BUSINESS_EMAIL } from '../consts';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	keywords?: string;
+	type?: string;
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { 
+	title, 
+	description, 
+	image, 
+	keywords = SITE_KEYWORDS,
+	type = "website",
+	noindex = false 
+} = Astro.props;
 
-const { title, description, image = FallbackImage } = Astro.props;
+const fullTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
+const imageUrl = image ? new URL(image.src, Astro.url) : new URL('/favicon.svg', Astro.url);
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
-/>
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<!-- Favicon and Icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+<link rel="manifest" href="/manifest.json" />
+
+<!-- SEO Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={SITE_AUTHOR} />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="language" content="es" />
+<meta name="geo.region" content="CL-RM" />
+<meta name="geo.placename" content="Talagante" />
+<meta name="geo.position" content="-33.666667;-70.933333" />
+<meta name="ICBM" content="-33.666667, -70.933333" />
+
+<!-- Mobile optimization -->
+<meta name="format-detection" content="telephone=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content={SITE_TITLE} />
+
+<!-- Browser color customization -->
+<meta name="theme-color" content="#FF0000" />
+<meta name="msapplication-TileColor" content="#FF0000" />
+<meta name="msapplication-navbutton-color" content="#FF0000" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Font preloads for performance -->
+<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:locale" content="es_CL" />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://bandafotografica.cl/#business",
+  "name": "Banda Fotográfica Talagante",
+  "alternateName": "Banda Fotográfica",
+  "description": "Servicios profesionales de fotografía en Talagante. Especialistas en fotografías tipo carnet, revelado digital, rollos analógicos y servicios de impresión.",
+  "url": "https://bandafotografica.cl",
+  "image": "https://bandafotografica.cl/favicon.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Talagante",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "telephone": "+56 9 XXXX XXXX",
+  "email": "contacto@bandafotografica.cl",
+  "priceRange": "$$",
+  "currenciesAccepted": "CLP",
+  "paymentAccepted": "Cash, Credit Card",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "-33.666667",
+      "longitude": "-70.933333"
+    },
+    "geoRadius": "50000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios Fotográficos",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fotografías tipo Carnet",
+          "description": "Fotografías profesionales para documentos oficiales"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Revelado Digital",
+          "description": "Revelado profesional y edición digital de fotografías"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Servicios Analógicos",
+          "description": "Revelado de rollos y digitalización de negativos"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://facebook.com/bandafotograficatalagante",
+    "https://instagram.com/bandafotograficatalagante"
+  ]
+}
+</script>

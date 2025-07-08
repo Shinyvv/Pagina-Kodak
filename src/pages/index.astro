@@ -8,7 +8,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <!doctype html>
 <html lang="es">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead 
+			title={SITE_TITLE} 
+			description={SITE_DESCRIPTION}
+			keywords="fotografía Talagante, carnet, visa, revelado digital, rollos analógicos, estudio fotográfico"
+		/>
 	</head>
 	<body style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
 		<Header />
@@ -33,7 +37,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<div class="cards-grid">
 					<a href="/donde-encontrarnos" class="info-card location-card">
 						<div class="card-image">
-							<img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Ubicación del local" loading="lazy" />
+							<img src="/viajero-buscando.avif" alt="Ubicación del local" loading="lazy" />
 							<div class="card-overlay">
 								<span class="card-icon">📍</span>
 							</div>
@@ -47,7 +51,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 					<a href="/horario" class="info-card schedule-card">
 						<div class="card-image">
-							<img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Horarios de atención" loading="lazy" />
+							<img src="/horario.jpg" alt="Horarios de atención" loading="lazy" />
 							<div class="card-overlay">
 								<span class="card-icon">🕒</span>
 							</div>
@@ -61,7 +65,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 					<a href="/contacto" class="info-card contact-card">
 						<div class="card-image">
-							<img src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Contacto" loading="lazy" />
+							<img src="/contacto.jpg" alt="Contacto" loading="lazy" />
 							<div class="card-overlay">
 								<span class="card-icon">📞</span>
 							</div>
@@ -75,7 +79,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 					<a href="/quienes-somos" class="info-card services-card">
 						<div class="card-image">
-							<img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Nuestros servicios" loading="lazy" />
+							<img src="/Impresora.jpg" alt="Nuestros servicios" loading="lazy" />
 							<div class="card-overlay">
 								<span class="card-icon">📸</span>
 							</div>
@@ -120,7 +124,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		align-items: center;
 		justify-content: center;
 		background: linear-gradient(135deg, rgba(242, 234, 5, 0.9), rgba(255, 0, 0, 0.8)), 
-		            url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+					url('/revelado.avif');
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
@@ -209,12 +213,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 	/* ===== SECTIONS ===== */
 	.featured, .features {
-		margin: 4rem 0;
+		margin: 2rem 0;
 	}
 
 	.section-header {
 		text-align: center;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 	}
 
 	.section-title {
@@ -236,9 +240,60 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	/* ===== CARDS GRID ===== */
 	.cards-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 		margin-top: 2rem;
+	}
+
+	/* MacBook Pro and medium screens: exactly 2 columns */
+	@media (min-width: 768px) and (max-width: 1099px) {
+		.cards-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+		}
+	}
+
+	/* MacBook Pro 13" and similar (1440x900): 4 columns layout */
+	@media (min-width: 1100px) and (max-width: 1199px) {
+		.cards-grid {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1rem;
+		}
+
+		.card-content {
+			padding: 1rem;
+		}
+
+		.card-title {
+			font-size: 1.1rem;
+		}
+
+		.card-description {
+			font-size: 0.9rem;
+			line-height: 1.5;
+		}
+
+		.card-action {
+			font-size: 0.85rem;
+		}
+	}
+
+	/* Desktop optimization: 4 columns layout */
+	@media (min-width: 1200px) {
+		.cards-grid {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.25rem;
+		}
+	}
+
+	/* Extra large screens: maintain 4 columns with max width */
+	@media (min-width: 1400px) {
+		.cards-grid {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.5rem;
+			max-width: 1200px;
+			margin: 2rem auto 0;
+		}
 	}
 
 	/* ===== INFO CARD STYLES ===== */
@@ -251,6 +306,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		text-decoration: none;
 		color: #000000;
 		border: 1px solid rgba(0, 0, 0, 0.1);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
 	.info-card:hover {
@@ -260,7 +318,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 	.card-image {
 		position: relative;
-		height: 200px;
+		height: 180px;
 		overflow: hidden;
 	}
 
@@ -294,21 +352,26 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	}
 
 	.card-content {
-		padding: 1.5rem;
-		background: #FFFFFF; 
+		padding: 1.25rem;
+		background: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
 	.card-title {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		margin-bottom: 0.5rem;
 		color: #000000; 
 		font-weight: 600;
+		line-height: 1.3;
 	}
 
 	.card-description {
 		color: #333333; 
 		margin-bottom: 1rem;
 		line-height: 1.6;
+		flex-grow: 1;
 	}
 
 	.card-action {
@@ -316,6 +379,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		font-weight: 600;
 		font-size: 0.9rem;
 		transition: color 0.3s ease;
+		margin-top: auto;
+		align-self: flex-start;
 	}
 
 	.info-card:hover .card-action {

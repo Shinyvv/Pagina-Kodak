@@ -6,58 +6,156 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-		<BaseHead title={`Horario - ${SITE_TITLE}`} description="Nuestros horarios de atención" />
+		<BaseHead 
+			title={`Horarios de Atención - ${SITE_TITLE}`} 
+			description="Conoce nuestros horarios de atención de lunes a sábado. Abierto casi todos los días del año para servirte mejor."
+			keywords="horarios, atención, abierto, talagante, banda fotográfica, lunes a sábado"
+		/>
 	</head>
-	<body style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+	<body>
 		<Header />
-		<main>
-			<h1 style="text-align: center;">Horario de Atención</h1>
-			<div class="schedule-container">
-				<div class="schedule-card">
-					<h2 style="text-align: center;">Horario Regular</h2>
-					<table class="schedule-table">
-						<tr>
-							<td>Lunes</td>
-							<td>9:30 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Martes</td>
-							<td>9:30 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Miércoles</td>
-							<td>9:30 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Jueves</td>
-							<td>9:30 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Viernes</td>
-							<td>9:30 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Sábado</td>
-							<td>10:00 - 18:30</td>
-						</tr>
-						<tr>
-							<td>Horario de Colación: Lunes - Viernes</td>
-							<td>14:00 - 14:30</td>
-						</tr>
-						<tr>
-							<td>Horario de Colación: Sábado</td>
-							<td>14:00 - 13:00</td>
-						</tr>	
-					</table>
+		<main class="main-container">
+			<div class="hero-section">
+				<h1>Horarios de Atención</h1>
+				<p class="subtitle">Conoce nuestros horarios y disponibilidad para planificar tu visita</p>
+			</div>
+
+			<div class="schedule-layout">
+				<!-- Horarios Principales -->
+				<div class="schedule-main">
+					<div class="primary-schedule">
+						<div class="schedule-header">
+							<h2>📅 Horarios Regulares</h2>
+							<div id="status-badge" class="status-badge">
+								<span id="status-text">Verificando...</span>
+								<span id="status-icon">⏱️</span>
+							</div>
+						</div>
+						
+						<div class="schedule-groups">
+							<div class="day-group weekdays">
+								<h3>Lunes a Viernes</h3>
+								<div class="time-display">
+									<span class="main-time">9:30 - 18:30</span>
+									<div class="break-time">
+										<span class="label">Colación:</span>
+										<span class="time">14:00 - 14:30</span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="day-group weekend">
+								<h3>Sábado</h3>
+								<div class="time-display">
+									<span class="main-time">10:00 - 18:30</span>
+									<div class="break-time">
+										<span class="label">Colación:</span>
+										<span class="time">13:00 - 14:00</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="closed-info">
+							<div class="closed-item">
+								<span class="icon">❌</span>
+								<span class="text">Domingos y días festivos cerrado</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tabla Detallada -->
+					<div class="detailed-table">
+						<h3>Horario Detallado</h3>
+						<div class="table-wrapper">
+							<table class="schedule-table">
+								<thead>
+									<tr>
+										<th>Día</th>
+										<th>Apertura</th>
+										<th>Colación</th>
+										<th>Cierre</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Lunes</td>
+										<td>9:30</td>
+										<td>14:00 - 14:30</td>
+										<td>18:30</td>
+									</tr>
+									<tr>
+										<td>Martes</td>
+										<td>9:30</td>
+										<td>14:00 - 14:30</td>
+										<td>18:30</td>
+									</tr>
+									<tr>
+										<td>Miércoles</td>
+										<td>9:30</td>
+										<td>14:00 - 14:30</td>
+										<td>18:30</td>
+									</tr>
+									<tr>
+										<td>Jueves</td>
+										<td>9:30</td>
+										<td>14:00 - 14:30</td>
+										<td>18:30</td>
+									</tr>
+									<tr>
+										<td>Viernes</td>
+										<td>9:30</td>
+										<td>14:00 - 14:30</td>
+										<td>18:30</td>
+									</tr>
+									<tr class="weekend-row">
+										<td>Sábado</td>
+										<td>10:00</td>
+										<td>14:00 - 15:00</td>
+										<td>18:30</td>
+									</tr>
+									<tr class="closed-row">
+										<td>Domingo</td>
+										<td colspan="3">Cerrado</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
-				<div class="info-card">
-					<h2 style="text-align: center;">Info Adicional</h2>
-					<ul>
-						<li>Abierto casi todos los días del año</li>
-						<li>Cerrado en dias festivos y Domingos</li>
-					</ul>
+
+				<!-- Sidebar con información adicional -->
+				<div class="schedule-sidebar">
+					<div class="info-card availability">
+						<div class="card-icon">🗓️</div>
+						<h3>Disponibilidad</h3>
+						<ul class="info-list">
+							<li class="open">✅ Abierto casi todos los días del año</li>
+							<li class="service">⚡ Servicio continuo durante horarios</li>
+							<li class="special">🎄 Horarios especiales en festividades</li>
+						</ul>
+					</div>
+
+					<div class="info-card contact">
+						<div class="card-icon">📞</div>
+						<h3>Consultas</h3>
+						<div class="contact-content">
+							<p>¿Tienes dudas sobre nuestros horarios?</p>
+							<a href="/contacto" class="contact-btn">Contáctanos</a>
+							<span class="response-time">Respuesta inmediata</span>
+						</div>
+					</div>
+
+					<div class="info-card location">
+						<div class="card-icon">📍</div>
+						<h3>Ubicación</h3>
+						<div class="location-content">
+							<p>Fácil acceso y estacionamiento disponible</p>
+							<a href="/donde-encontrarnos" class="location-btn">Ver ubicación</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -66,112 +164,529 @@ import { SITE_TITLE } from '../consts';
 </html>
 
 <style>
+	/* Variables */
+	:root {
+		--primary-red: #dc2626;
+		--primary-yellow: #f59e0b;
+		--text-primary: #1f2937;
+		--text-secondary: #6b7280;
+		--bg-white: #ffffff;
+		--bg-gray: #f9fafb;
+		--border-light: #e5e7eb;
+		--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+	}
+
 	body {
 		margin: 0;
 		padding: 0;
-		/* background gradient applied inline */
+		background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+		color: var(--text-primary);
+		line-height: 1.6;
 	}
-	main {
+
+	.main-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	/* Hero Section */
+	.hero-section {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.hero-section h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		margin-bottom: 1rem;
+		background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: bold;
+	}
+
+	.subtitle {
+		font-size: clamp(1.1rem, 3vw, 1.3rem);
+		color: var(--text-secondary);
+		margin: 0;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	/* Layout Principal */
+	.schedule-layout {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	/* Área Principal de Horarios */
+	.schedule-main {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-	}
-	.schedule-container {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 2rem;
-		margin-top: 2rem;
-		justify-items: center;
-		width: 100%;
-		max-width: 900px;
 	}
 
-	/* ===== SCHEDULE AND INFO CARDS ===== */
-	.schedule-card, .info-card {
-		background: #FFFFFF; 
+	.primary-schedule {
+		background: var(--bg-white);
+		border-radius: 1rem;
 		padding: 2rem;
-		border-radius: 1rem; /* Standardized radius */
-		box-shadow: 0 4px 15px rgba(39, 39, 39, 0.1); /* Standardized shadow */
-		width: 100%;
-		max-width: 400px;
-		margin: 0 auto;
-		border: 1px solid rgba(0, 0, 0, 0.1); /* Standardized border */
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--border-light);
 	}
 
-	.schedule-card:hover, .info-card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 25px rgba(39, 39, 39, 0.15);
+	.schedule-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2rem;
+		flex-wrap: wrap;
+		gap: 1rem;
 	}
 
+	.schedule-header h2 {
+		margin: 0;
+		font-size: 1.5rem;
+		color: var(--text-primary);
+	}
 
-	.schedule-card h2, .info-card h2 {
-		color: #000000; 
+	.status-badge {
+		padding: 0.5rem 1rem;
+		border-radius: 2rem;
+		font-size: 0.875rem;
 		font-weight: 600;
-		text-align: center; /* Kept from original */
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.status-badge.open {
+		background: #dcfce7;
+		color: #166534;
+		border: 1px solid #bbf7d0;
+		animation: pulse-green 2s infinite;
+	}
+
+	.status-badge.closed {
+		background: #fef2f2;
+		color: #991b1b;
+		border: 1px solid #fecaca;
+		animation: pulse-red 2s infinite;
+	}
+
+	.status-badge.lunch {
+		background: #fef3c7;
+		color: #92400e;
+		border: 1px solid #fde68a;
+		animation: pulse-yellow 2s infinite;
+	}
+
+	/* Animaciones de pulso */
+	@keyframes pulse-green {
+		0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+		50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+	}
+
+	@keyframes pulse-red {
+		0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+		50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+	}
+
+	@keyframes pulse-yellow {
+		0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+		50% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+	}
+
+	#status-icon {
+		margin-left: 0.5rem;
+		font-size: 1rem;
+	}
+
+	.schedule-groups {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.day-group h3 {
+		margin: 0 0 1rem 0;
+		font-size: 1.2rem;
+		color: var(--text-primary);
+		font-weight: 600;
+	}
+
+	.time-display {
+		background: var(--bg-gray);
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--border-light);
+	}
+
+	.main-time {
+		display: block;
+		font-size: 1.75rem;
+		font-weight: bold;
+		color: var(--primary-red);
+		margin-bottom: 0.5rem;
+	}
+
+	.break-time {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	.break-time .label {
+		font-weight: 600;
+	}
+
+	.closed-info {
+		padding: 1rem;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 0.5rem;
+	}
+
+	.closed-item {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: #991b1b;
+		font-weight: 500;
+	}
+
+	/* Tabla Detallada */
+	.detailed-table {
+		background: var(--bg-white);
+		border-radius: 1rem;
+		padding: 2rem;
+		box-shadow: var(--shadow-lg);
+		border: 1px solid var(--border-light);
+	}
+
+	.detailed-table h3 {
+		margin: 0 0 1.5rem 0;
+		font-size: 1.3rem;
+		color: var(--text-primary);
+	}
+
+	.table-wrapper {
+		overflow-x: auto;
 	}
 
 	.schedule-table {
 		width: 100%;
-		margin-top: 1rem;
+		border-collapse: collapse;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		box-shadow: var(--shadow-sm);
 	}
-	.schedule-table tr {
-		border-bottom: 1px solid #eee;
+
+	.schedule-table th {
+		background: var(--primary-red);
+		color: white;
+		padding: 1rem;
+		text-align: left;
+		font-weight: 600;
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
 	}
+
 	.schedule-table td {
-		padding: 1rem 0;
-		color: #000000; /* Changed to black */
+		padding: 1rem;
+		border-bottom: 1px solid var(--border-light);
+		background: var(--bg-white);
 	}
-	.schedule-table td:last-child {
-		text-align: right;
-		font-weight: bold;
-		color: #000000; 
+
+	.schedule-table tr:nth-child(even) td {
+		background: var(--bg-gray);
 	}
-	.info-card ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 1rem 0;
+
+	.weekend-row td {
+		background: #fffbeb !important;
+		color: var(--text-primary);
+		font-weight: 500;
 	}
-	.info-card li {
-		padding: 0.5rem 0;
-		border-bottom: 1px solid #eee;
-		color: #000000; /* Changed to black */
+
+	.closed-row td {
+		background: #fef2f2 !important;
+		color: #991b1b;
+		font-weight: 600;
+		text-align: center;
 	}
-	.contact-info {
-		margin-top: 2rem;
+
+	/* Sidebar */
+	.schedule-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
 	}
-	.contact-info h3 {
+
+	.info-card {
+		background: var(--bg-white);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		box-shadow: var(--shadow-md);
+		border: 1px solid var(--border-light);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.info-card:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.card-icon {
+		font-size: 2rem;
 		margin-bottom: 1rem;
-		color: #000000; 
 	}
 
-	/* ===== HIGH CONTRAST MODE ===== */
-	@media (prefers-contrast: high) {
-		.schedule-card, .info-card {
-			background: #FFFFFF;
-			border: 2px solid #000000;
+	.info-card h3 {
+		margin: 0 0 1rem 0;
+		font-size: 1.2rem;
+		color: var(--text-primary);
+	}
+
+	.info-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.info-list li {
+		padding: 0.5rem 0;
+		font-size: 0.9rem;
+		border-bottom: 1px solid var(--border-light);
+	}
+
+	.info-list li:last-child {
+		border-bottom: none;
+	}
+
+	.contact-content p {
+		margin: 0 0 1rem 0;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.contact-btn, .location-btn {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background: var(--primary-red);
+		color: white;
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		font-size: 0.875rem;
+		transition: background-color 0.2s ease;
+	}
+
+	.contact-btn:hover, .location-btn:hover {
+		background: #b91c1c;
+	}
+
+	.response-time {
+		display: block;
+		margin-top: 0.5rem;
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		font-style: italic;
+	}
+
+	.location-content p {
+		margin: 0 0 1rem 0;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.schedule-layout {
+			grid-template-columns: 1fr;
 		}
-		
-		.schedule-card h2, .info-card h2, .contact-info h3 {
-			color: #000000;
+
+		.schedule-groups {
+			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
-		
-		.schedule-table td, .info-card li {
-			color: #000000;
+
+		.schedule-header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.main-time {
+			font-size: 1.5rem;
+		}
+
+		.schedule-table {
+			font-size: 0.8rem;
+		}
+
+		.schedule-table th,
+		.schedule-table td {
+			padding: 0.5rem;
 		}
 	}
 
-	/* ===== PRINT STYLES ===== */
-	@media print {
-		.schedule-card, .info-card {
-			break-inside: avoid;
-			box-shadow: none;
-			border: 1px solid #000000;
-			background: #FFFFFF;
+	@media (max-width: 480px) {
+		.main-container {
+			padding: 1rem 0.5rem;
 		}
-		
-		.schedule-card h2, .info-card h2, .schedule-table td, .info-card li {
-			color: #000000;
+
+		.primary-schedule,
+		.detailed-table,
+		.info-card {
+			padding: 1rem;
+		}
+
+		.hero-section {
+			margin-bottom: 2rem;
 		}
 	}
 </style>
+
+<script>
+	// Función para verificar si el local está abierto
+	function checkBusinessStatus() {
+		const now = new Date();
+		const currentDay = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+		const currentTime = now.getHours() * 60 + now.getMinutes(); // Minutos desde medianoche
+		
+		const statusBadge = document.getElementById('status-badge');
+		const statusText = document.getElementById('status-text');
+		const statusIcon = document.getElementById('status-icon');
+		
+		// Verificar que los elementos existen
+		if (!statusBadge || !statusText || !statusIcon) {
+			console.error('No se pudieron encontrar los elementos del status badge');
+			return;
+		}
+		
+		// Horarios en minutos desde medianoche
+		const schedules = {
+			// Lunes a Viernes: 9:30 - 18:30, colación 14:00 - 14:30
+			weekdays: {
+				open: 9 * 60 + 30,      // 9:30
+				lunchStart: 14 * 60,     // 14:00
+				lunchEnd: 14 * 60 + 30,  // 14:30
+				close: 18 * 60 + 30      // 18:30
+			},
+			// Sábado: 10:00 - 18:30, colación 13:00 - 14:00
+			saturday: {
+				open: 10 * 60,           // 10:00
+				lunchStart: 13 * 60,     // 13:00
+				lunchEnd: 14 * 60,       // 14:00
+				close: 18 * 60 + 30      // 18:30
+			}
+		};
+		
+		let status = 'closed';
+		let message = 'El Local Está Cerrado';
+		let icon = '🔴';
+		
+		// Domingo (0) - Cerrado
+		if (currentDay === 0) {
+			status = 'closed';
+			message = 'Cerrado - Domingos';
+			icon = '🔴';
+		}
+		// Lunes a Viernes (1-5)
+		else if (currentDay >= 1 && currentDay <= 5) {
+			const schedule = schedules.weekdays;
+			
+			if (currentTime >= schedule.open && currentTime < schedule.lunchStart) {
+				status = 'open';
+				message = 'El Local Está Abierto';
+				icon = '🟢';
+			} else if (currentTime >= schedule.lunchStart && currentTime < schedule.lunchEnd) {
+				status = 'lunch';
+				message = 'En Horario de Colación';
+				icon = '🟡';
+			} else if (currentTime >= schedule.lunchEnd && currentTime < schedule.close) {
+				status = 'open';
+				message = 'El Local Está Abierto';
+				icon = '🟢';
+			} else {
+				status = 'closed';
+				message = 'El Local Está Cerrado';
+				icon = '🔴';
+			}
+		}
+		// Sábado (6)
+		else if (currentDay === 6) {
+			const schedule = schedules.saturday;
+			
+			if (currentTime >= schedule.open && currentTime < schedule.lunchStart) {
+				status = 'open';
+				message = 'El Local Está Abierto';
+				icon = '🟢';
+			} else if (currentTime >= schedule.lunchStart && currentTime < schedule.lunchEnd) {
+				status = 'lunch';
+				message = 'En Horario de Colación';
+				icon = '🟡';
+			} else if (currentTime >= schedule.lunchEnd && currentTime < schedule.close) {
+				status = 'open';
+				message = 'El Local Está Abierto';
+				icon = '🟢';
+			} else {
+				status = 'closed';
+				message = 'El Local Está Cerrado';
+				icon = '🔴';
+			}
+		}
+		
+		// Actualizar el badge
+		statusBadge.className = `status-badge ${status}`;
+		statusText.textContent = message;
+		statusIcon.textContent = icon;
+		
+		// Agregar información adicional sobre próxima apertura
+		if (status === 'closed') {
+			const nextOpen = getNextOpenTime(currentDay, currentTime);
+			if (nextOpen) {
+				statusText.textContent = `${message} - Abre ${nextOpen}`;
+			}
+		}
+	}
+	
+	// Función para calcular la próxima hora de apertura
+	function getNextOpenTime(currentDay: number, currentTime: number): string | null {
+		// Si es domingo o después del horario de sábado
+		if (currentDay === 0 || (currentDay === 6 && currentTime >= 18 * 60 + 30)) {
+			return 'el lunes a las 9:30';
+		}
+		// Si es lunes a viernes después del horario
+		else if (currentDay >= 1 && currentDay <= 5 && currentTime >= 18 * 60 + 30) {
+			if (currentDay === 5) { // Viernes
+				return 'el sábado a las 10:00';
+			} else {
+				return 'mañana a las 9:30';
+			}
+		}
+		// Si es antes del horario de apertura
+		else if (currentDay >= 1 && currentDay <= 5 && currentTime < 9 * 60 + 30) {
+			return 'a las 9:30';
+		}
+		else if (currentDay === 6 && currentTime < 10 * 60) {
+			return 'a las 10:00';
+		}
+		
+		return null;
+	}
+	
+	// Ejecutar al cargar la página
+	document.addEventListener('DOMContentLoaded', function() {
+		checkBusinessStatus();
+		
+		// Actualizar cada minuto
+		setInterval(checkBusinessStatus, 60000);
+	});
+</script>

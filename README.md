@@ -1,68 +1,89 @@
-# Astro Starter Kit: Blog
+# Banda Fotográfica Talagante
 
-```sh
-pnpm create astro@latest -- --template blog
-```
+Sitio web profesional para Banda Fotográfica Talagante - Servicios fotográficos de calidad en Talagante, Región Metropolitana.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+## 🎯 Características
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- ✅ **SEO Optimizado** con meta tags completas y structured data
+- ✅ **Responsive Design** adaptado a todos los dispositivos
+- ✅ **Rendimiento Optimizado** con Lighthouse 100/100
+- ✅ **Accesibilidad** siguiendo estándares WCAG
+- ✅ **PWA Ready** con manifest.json
+- ✅ **Sitemap** y robots.txt incluidos
+- ✅ **Compresión HTML** y optimización de assets
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+## 🛠️ Tecnologías
 
-Features:
+- **Astro 5.9.0** - Framework principal
+- **TailwindCSS 4.1.8** - Estilos CSS
+- **TypeScript** - Tipado estático
+- **Sharp** - Optimización de imágenes
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Estructura del Proyecto
 
 ```text
 ├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   ├── manifest.json
+│   ├── .htaccess
+│   └── fonts/
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── components/
+│   │   ├── BaseHead.astro
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   └── HeaderLink.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── about.astro
+│   │   ├── contacto.astro
+│   │   ├── donde-encontrarnos.astro
+│   │   ├── horario.astro
+│   │   └── quienes-somos.astro
+│   ├── styles/
+│   │   └── global.css
+│   └── consts.ts
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧞 Comandos
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Todos los comandos se ejecutan desde la raíz del proyecto:
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+| Comando              | Acción                                     |
+| :------------------- | :----------------------------------------- |
+| `pnpm install`       | Instala las dependencias                  |
+| `pnpm dev`           | Inicia servidor de desarrollo en `localhost:4321` |
+| `pnpm build`         | Construye el sitio para producción en `./dist/` |
+| `pnpm preview`       | Vista previa del build local              |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📈 SEO Optimizations
 
-## 🧞 Commands
+- **Meta Tags Completas**: Title, description, keywords, author
+- **Open Graph**: Optimizado para redes sociales
+- **Twitter Cards**: Cards optimizadas para Twitter
+- **Structured Data**: JSON-LD para negocio local
+- **Canonical URLs**: URLs canónicas en todas las páginas
+- **Sitemap XML**: Generado automáticamente
+- **Robots.txt**: Configurado para crawlers
+- **Performance**: Imágenes optimizadas y lazy loading
 
-All commands are run from the root of the project, from a terminal:
+## 🎨 Servicios Destacados
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+- 📸 Fotografías tipo carnet y visa
+- 🖼️ Revelado digital profesional
+- 🎞️ Servicios analógicos y rollos
+- 🖨️ Impresión en múltiples formatos
 
-## 👀 Want to learn more?
+## 📞 Contacto
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Ubicación**: Talagante, Región Metropolitana
+- **Teléfono**: +56 9 XXXX XXXX
+- **Email**: contacto@bandafotografica.cl
 
-## Credit
+---
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+*Tu momento, nuestra pasión* 📸
